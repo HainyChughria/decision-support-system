@@ -1,3 +1,6 @@
+const decisionRoutes = require('./routes/decisionRoutes');
+
+
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -6,6 +9,9 @@ const PORT = 5000;
 
 // middleware
 app.use(express.json());
+
+app.use('/api/decisions', decisionRoutes);
+
 
 // MongoDB URI
 const uri = "mongodb+srv://hainychughria25_db_user:Hainy%4025052004@cluster0.kopkaqg.mongodb.net/?appName=Cluster0";
