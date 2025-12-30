@@ -22,4 +22,17 @@ router.post('/add', async (req, res) => {
     }
 });
 
+// GET: Fetch all decisions
+router.get('/', async (req, res) => {
+    try {
+        const decisions = await Decision.find().sort({ createdAt: -1 });
+        res.status(200).json(decisions);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 module.exports = router;
+
+
+
